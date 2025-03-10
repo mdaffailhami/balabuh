@@ -17,6 +17,9 @@ importers:
       '@expo/vector-icons':
         specifier: ^14.0.2
         version: 14.0.4
+      '@gluestack-ui/avatar':
+        specifier: ^0.1.18
+        version: 0.1.18(react-dom@18.3.1(react@18.3.1))(react-native@0.76.7(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
       '@gluestack-ui/divider':
         specifier: ^0.1.10
         version: 0.1.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -976,6 +979,12 @@ packages:
 
   '@formatjs/intl-localematcher@0.6.0':
     resolution: {integrity: sha512-4rB4g+3hESy1bHSBG3tDFaMY2CH67iT7yne1e+0CLTsGLDcmoEWWpJjjpWVaYgYfYuohIRuo0E+N536gd2ZHZA==}
+
+  '@gluestack-ui/avatar@0.1.18':
+    resolution: {integrity: sha512-VA9XwtavYLYCWrjxHc2u9gRpV97cPRcr/6KJ4tLiMiQbiRL1b4zckiL+/F39fB6xjUOUQHl3Fjo/Yd8swa0MBg==}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
 
   '@gluestack-ui/divider@0.1.10':
     resolution: {integrity: sha512-/hZx1Rmy4Pgln9AwAprAEQcxYPEHjHSNF4xCUWlK/q0peyiMT5Nagt54VnxykVn5A0b2zg5QKP0pOqOF9xeE6w==}
@@ -6263,6 +6272,14 @@ snapshots:
   '@formatjs/intl-localematcher@0.6.0':
     dependencies:
       tslib: 2.8.1
+
+  '@gluestack-ui/avatar@0.1.18(react-dom@18.3.1(react@18.3.1))(react-native@0.76.7(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@gluestack-ui/utils': 0.1.15(react-dom@18.3.1(react@18.3.1))(react-native@0.76.7(@babel/core@7.26.9)(@babel/preset-env@7.26.9(@babel/core@7.26.9))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+    transitivePeerDependencies:
+      - react-native
 
   '@gluestack-ui/divider@0.1.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:

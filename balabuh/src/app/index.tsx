@@ -1,6 +1,7 @@
 import { Box } from '@/components/ui/box';
 import { Center } from '@/components/ui/center';
 import { Text } from '@/components/ui/text';
+import { Stack } from 'expo-router';
 
 export default function Index() {
   return (

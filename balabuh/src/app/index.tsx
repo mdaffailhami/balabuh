@@ -1,15 +1,13 @@
-import { Text, View } from "react-native";
+import { Box } from '@/components/ui/box';
+import { Center } from '@/components/ui/center';
+import { Text } from '@/components/ui/text';
 
 export default function Index() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
-    </View>
+    <Center className='flex-1 bg-gray-900'>
+      <Text className='text-red-500 tes'>
+        Edit app/index.tsx to edit this screen.
+      </Text>
+    </Center>
   );
 }

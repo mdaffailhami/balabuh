@@ -3,9 +3,9 @@ import {
   AvatarBadge,
   AvatarFallbackText,
   AvatarImage,
-} from '@/components/avatar';
+} from '@/components';
 import { Tabs } from 'expo-router';
-import theme from '@/configs/theme';
+import { theme } from '@/configs';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 export default function () {

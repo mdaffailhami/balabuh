@@ -1,5 +1,4 @@
-import { Center } from '@/components/center';
-import { Text } from '@/components/text';
+import { Center, Text } from '@/components';
 
 export default function () {
   return (

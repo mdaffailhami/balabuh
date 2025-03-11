@@ -1,4 +1,4 @@
-export default {
+const theme = {
   light: {
     '--color-primary-0': '179 179 179',
     '--color-primary-50': '153 153 153',
@@ -305,3 +305,5 @@ export default {
     '--color-indicator-error': '232 70 69',
   },
 };
+
+export default theme;

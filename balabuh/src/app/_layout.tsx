@@ -1,6 +1,6 @@
 import '@/global.css';
 import { Stack } from 'expo-router';
-import { GluestackUIProvider } from '@/components/gluestack-ui-provider';
+import { GluestackUIProvider } from '@/providers';
 
 export default function () {
   return (

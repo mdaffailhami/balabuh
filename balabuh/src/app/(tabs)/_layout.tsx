@@ -4,12 +4,22 @@ import {
   AvatarFallbackText,
   AvatarImage,
   HStack,
+  IconButton,
 } from '@/components';
 import { Tabs } from 'expo-router';
 import { theme } from '@/configs';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
+import {
+  Ionicons,
+  FontAwesome,
+  Entypo,
+  MaterialIcons,
+  MaterialCommunityIcons,
+} from '@expo/vector-icons';
+import { useTheme } from '@/providers';
 
 export default function () {
+  console.log('/(tabs)/_layout.tsx is being rendered');
+
   return (
     <Tabs
       screenOptions={{
@@ -24,8 +34,12 @@ export default function () {
         options={{
           title: 'Balabuh',
           tabBarLabel: 'Beranda',
-          tabBarIcon: ({ color }) => (
-            <FontAwesome name='home' size={28} color={color} />
+          tabBarIcon: ({ focused, color }) => (
+            <Ionicons
+              name={focused ? 'home' : 'home-outline'}
+              size={28}
+              color={color}
+            />
           ),
         }}
       />
@@ -56,8 +70,34 @@ export default function () {
 function HeaderRight() {
   return (
     <HStack>
+      <ChangeThemeButton />
       <ProfileButton className='mr-4' />
     </HStack>
+  );
+}
+
+function ChangeThemeButton() {
+  const { theme, cycleTheme } = useTheme();
+
+  console.log(theme);
+  return (
+    <IconButton onPress={() => cycleTheme()}>
+      {(() => {
+        if (theme == 'light') {
+          return <MaterialIcons name='light-mode' size={24} color='black' />;
+        } else if (theme == 'dark') {
+          return <MaterialIcons name='dark-mode' size={24} color='black' />;
+        } else {
+          return (
+            <MaterialCommunityIcons
+              name='theme-light-dark'
+              size={24}
+              color='black'
+            />
+          );
+        }
+      })()}
+    </IconButton>
   );
 }
 

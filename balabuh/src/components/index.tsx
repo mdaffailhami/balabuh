@@ -12,7 +12,8 @@ import { Heading } from './heading';
 import { HStack } from './hstack';
 import { Text } from './text';
 import { VStack } from './vstack';
-import Chip from './chip';
+import { Chip } from './chip';
+import { IconButton } from './icon-button';
 
 export {
   Avatar,
@@ -28,4 +29,5 @@ export {
   Text,
   VStack,
   Chip,
+  IconButton,
 };

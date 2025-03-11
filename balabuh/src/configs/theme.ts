@@ -3,19 +3,19 @@ const theme = {
     '--color-primary': 'rgb(245, 124, 0)',
     '--color-background': 'rgb(249, 250, 251)',
     '--color-on-background': 'rgb(0, 0, 0)',
-    '--color-on-background-hover': 'rgba(0, 0, 0, 0.08)',
     '--color-surface': 'rgb(217, 217, 217)',
     '--color-on-surface': 'rgb(0, 0, 0)',
     '--color-outline': 'rgba(0, 0, 0, 0.2)',
+    '--color-faded': 'rgba(0, 0, 0, 0.08)',
   },
   dark: {
     '--color-primary': 'rgb(245, 124, 0)',
     '--color-background': 'rgb(25, 29, 36)',
     '--color-on-background': 'rgb(255, 255, 255)',
-    '--color-on-background-hover': 'rgba(255, 255, 255, 0.08)',
     '--color-surface': 'rgb(38, 38, 38)',
     '--color-on-surface': 'rgb(255, 255, 255)',
     '--color-outline': 'rgba(255, 255, 255, 0.2)',
+    '--color-faded': 'rgba(255, 255, 255, 0.08)',
   },
 };
 // const theme = {

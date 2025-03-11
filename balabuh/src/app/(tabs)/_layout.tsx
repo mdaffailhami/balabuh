@@ -3,6 +3,7 @@ import {
   AvatarBadge,
   AvatarFallbackText,
   AvatarImage,
+  HStack,
 } from '@/components';
 import { Tabs } from 'expo-router';
 import { theme } from '@/configs';
@@ -13,9 +14,9 @@ export default function () {
     <Tabs
       screenOptions={{
         headerTitleStyle: { fontWeight: 'bold' },
-        headerRight: () => <ProfileButton className='mr-4' />,
-        tabBarActiveTintColor: `rgb(${theme.light['--color-error-500']})`,
-        tabBarInactiveTintColor: `rgb(${theme.light['--color-outline-600']})`,
+        headerRight: () => <HeaderRight />,
+        tabBarActiveTintColor: `rgb(${theme.light['--color-primary']})`,
+        tabBarInactiveTintColor: `rgb(${theme.light['--color-outline']})`,
       }}
     >
       <Tabs.Screen
@@ -52,6 +53,14 @@ export default function () {
   );
 }
 
+function HeaderRight() {
+  return (
+    <HStack>
+      <ProfileButton className='mr-4' />
+    </HStack>
+  );
+}
+
 function ProfileButton({ className }: { className: string }) {
   return (
     <Avatar size='md' className={className}>
@@ -61,7 +70,7 @@ function ProfileButton({ className }: { className: string }) {
           uri: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
         }}
       />
-      <AvatarBadge />
+      <AvatarBadge className='bg-primary' />
     </Avatar>
   );
 }

@@ -1,9 +1,10 @@
-import { Center, Text } from '@/components';
+import { Center, Chip, Text } from '@/components';
 
 export default function () {
   return (
     <Center className='flex-1'>
-      <Text className='text-success-500 font-bold'>Chat Screen</Text>
+      <Chip />
+      <Text className='text-primary font-bold'>Chat Screen</Text>
     </Center>
   );
 }

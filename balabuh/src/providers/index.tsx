@@ -1,4 +1,8 @@
-import { ThemeProvider, Theme, useTheme } from './theme-provider';
+import {
+  ThemeModeProvider,
+  ThemeMode,
+  useThemeMode,
+} from './theme-mode-provider';
 import { GluestackUIProvider } from './gluestack-ui-provider';
 
-export { ThemeProvider, Theme, useTheme, GluestackUIProvider };
+export { ThemeModeProvider, ThemeMode, useThemeMode, GluestackUIProvider };

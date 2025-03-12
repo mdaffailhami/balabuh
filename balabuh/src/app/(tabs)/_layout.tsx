@@ -15,18 +15,34 @@ import {
   MaterialIcons,
   MaterialCommunityIcons,
 } from '@expo/vector-icons';
-import { useTheme } from '@/providers';
+import { useThemeMode } from '@/providers';
+import { useColorScheme } from 'react-native';
 
 export default function () {
+  const colorScheme = useColorScheme() || 'light';
   console.log('/(tabs)/_layout.tsx is being rendered');
 
   return (
     <Tabs
       screenOptions={{
-        headerTitleStyle: { fontWeight: 'bold' },
+        headerStyle: {
+          backgroundColor: theme[colorScheme]['--color-background'],
+          shadowColor: theme[colorScheme]['--color-on-background'],
+          shadowOffset: { width: 0, height: 2 },
+          shadowOpacity: 0.2,
+          shadowRadius: 3.84,
+          elevation: 5,
+        },
+        headerTitleStyle: {
+          fontWeight: 'bold',
+          color: theme[colorScheme]['--color-primary'],
+        },
         headerRight: () => <HeaderRight />,
-        tabBarActiveTintColor: `rgb(${theme.light['--color-primary']})`,
-        tabBarInactiveTintColor: `rgb(${theme.light['--color-outline']})`,
+        tabBarStyle: {
+          backgroundColor: theme[colorScheme]['--color-background'],
+        },
+        tabBarActiveTintColor: `rgb(${theme[colorScheme]['--color-primary']})`,
+        tabBarInactiveTintColor: `rgb(${theme[colorScheme]['--color-outline']})`,
       }}
     >
       <Tabs.Screen
@@ -77,22 +93,25 @@ function HeaderRight() {
 }
 
 function ChangeThemeButton() {
-  const { theme, cycleTheme } = useTheme();
+  const colorScheme = useColorScheme() || 'light';
+  const { themeMode, cycleThemeMode } = useThemeMode();
 
-  console.log('uwu', theme);
+  const size = 24;
+  const color = theme[colorScheme]['--color-on-background'];
+
   return (
-    <IconButton onPress={() => cycleTheme()}>
+    <IconButton onPress={() => cycleThemeMode()}>
       {(() => {
-        if (theme == 'light') {
-          return <MaterialIcons name='light-mode' size={24} color='black' />;
-        } else if (theme == 'dark') {
-          return <MaterialIcons name='dark-mode' size={24} color='black' />;
+        if (themeMode == 'light') {
+          return <MaterialIcons name='light-mode' size={size} color={color} />;
+        } else if (themeMode == 'dark') {
+          return <MaterialIcons name='dark-mode' size={size} color={color} />;
         } else {
           return (
             <MaterialCommunityIcons
               name='theme-light-dark'
-              size={24}
-              color='black'
+              size={size}
+              color={color}
             />
           );
         }

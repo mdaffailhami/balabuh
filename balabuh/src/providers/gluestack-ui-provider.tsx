@@ -1,41 +1,43 @@
 import React from 'react';
-import { config } from './config';
 import { ColorSchemeName, useColorScheme, View, ViewProps } from 'react-native';
 import { OverlayProvider } from '@gluestack-ui/overlay';
 import { ToastProvider } from '@gluestack-ui/toast';
-import { colorScheme as colorSchemeNW } from 'nativewind';
+import { Theme, useTheme } from '@/providers/theme-provider';
 
-type ModeType = 'light' | 'dark' | 'system';
+import { vars } from 'nativewind';
+import { theme as appTheme } from '@/configs';
+
+export const config = {
+  light: vars(appTheme.light),
+  dark: vars(appTheme.dark),
+};
 
 const getColorSchemeName = (
   colorScheme: ColorSchemeName,
-  mode: ModeType
+  theme: Theme,
 ): 'light' | 'dark' => {
-  if (mode === 'system') {
+  if (theme === 'system') {
     return colorScheme ?? 'light';
   }
-  return mode;
+
+  return theme;
 };
 
 export function GluestackUIProvider({
-  mode = 'light',
   ...props
 }: {
-  mode?: 'light' | 'dark' | 'system';
   children?: React.ReactNode;
   style?: ViewProps['style'];
 }) {
   const colorScheme = useColorScheme();
+  const { theme } = useTheme();
 
-  const colorSchemeName = getColorSchemeName(colorScheme, mode);
-
-  colorSchemeNW.set(mode);
+  const colorSchemeName = getColorSchemeName(colorScheme, theme);
 
   return (
     <View
       style={[
         config[colorSchemeName],
-        // eslint-disable-next-line react-native/no-inline-styles
         { flex: 1, height: '100%', width: '100%' },
         props.style,
       ]}

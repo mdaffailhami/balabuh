@@ -69,7 +69,7 @@ export default function () {
 
 function HeaderRight() {
   return (
-    <HStack>
+    <HStack className='gap-x-2.5'>
       <ChangeThemeButton />
       <ProfileButton className='mr-4' />
     </HStack>
@@ -79,7 +79,7 @@ function HeaderRight() {
 function ChangeThemeButton() {
   const { theme, cycleTheme } = useTheme();
 
-  console.log(theme);
+  console.log('uwu', theme);
   return (
     <IconButton onPress={() => cycleTheme()}>
       {(() => {

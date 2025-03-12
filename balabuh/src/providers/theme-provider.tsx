@@ -1,5 +1,5 @@
 import React from 'react';
-import { colorScheme, useColorScheme } from 'nativewind';
+import { useColorScheme } from 'nativewind';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export type Theme = 'system' | 'light' | 'dark';
@@ -8,19 +8,26 @@ const ThemeContext = React.createContext<
   | {
       theme: Theme;
       cycleTheme: () => void;
-      setTheme: (theme: Theme) => void;
     }
   | undefined
 >(undefined);
 
+export function useTheme() {
+  const theme = React.useContext(ThemeContext);
+
+  if (!theme) throw new Error('useTheme must be used within a ThemeProvider');
+
+  return theme;
+}
+
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  // const { colorScheme, setColorScheme: setTheme } = useColorScheme();
+  const { colorScheme, setColorScheme } = useColorScheme();
 
   // const theme: Theme = colorScheme
   //   ? (colorScheme.toLowerCase() as Theme)
   //   : 'system';
 
-  const [theme, setTheme] = React.useState<Theme>('system');
+  const [theme, setTheme] = React.useState<Theme>(colorScheme || 'system');
 
   React.useEffect(() => {
     const loadTheme = async () => {
@@ -28,6 +35,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       if (savedTheme) {
         console.log('savedTheme', savedTheme);
         setTheme(savedTheme as Theme);
+        setColorScheme(savedTheme as Theme);
       }
     };
     loadTheme();
@@ -36,25 +44,15 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const cycleTheme = async () => {
     const nextTheme =
       theme === 'system' ? 'light' : theme === 'light' ? 'dark' : 'system';
+
     setTheme(nextTheme);
-    colorScheme.set(nextTheme);
-    console.log('get', colorScheme.get());
+    setColorScheme(nextTheme);
     await AsyncStorage.setItem('theme', nextTheme);
   };
 
-  console.log('theme', theme);
-
   return (
-    <ThemeContext.Provider value={{ theme, cycleTheme, setTheme }}>
+    <ThemeContext.Provider value={{ theme, cycleTheme }}>
       {children}
     </ThemeContext.Provider>
   );
-}
-
-export function useTheme() {
-  const theme = React.useContext(ThemeContext);
-
-  if (!theme) throw new Error('useTheme must be used within a ThemeProvider');
-
-  return theme;
 }

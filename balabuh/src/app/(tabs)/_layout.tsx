@@ -10,8 +10,6 @@ import { Tabs } from 'expo-router';
 import { theme } from '@/configs';
 import {
   Ionicons,
-  FontAwesome,
-  Entypo,
   MaterialIcons,
   MaterialCommunityIcons,
 } from '@expo/vector-icons';
@@ -21,6 +19,8 @@ import { useColorScheme } from 'react-native';
 export default function () {
   const colorScheme = useColorScheme() || 'light';
   console.log('/(tabs)/_layout.tsx is being rendered');
+
+  const iconSize = 30;
 
   return (
     <Tabs
@@ -41,8 +41,11 @@ export default function () {
         tabBarStyle: {
           backgroundColor: theme[colorScheme]['--color-background'],
         },
-        tabBarActiveTintColor: `rgb(${theme[colorScheme]['--color-primary']})`,
-        tabBarInactiveTintColor: `rgb(${theme[colorScheme]['--color-outline']})`,
+        tabBarActiveTintColor: `${theme[colorScheme]['--color-primary']}`,
+        tabBarInactiveTintColor: `${theme[colorScheme]['--color-outline']}`,
+        tabBarLabelStyle: {
+          fontSize: 12,
+        },
       }}
     >
       <Tabs.Screen
@@ -53,7 +56,7 @@ export default function () {
           tabBarIcon: ({ focused, color }) => (
             <Ionicons
               name={focused ? 'home' : 'home-outline'}
-              size={28}
+              size={iconSize}
               color={color}
             />
           ),
@@ -65,7 +68,11 @@ export default function () {
           title: 'Aktivitas',
           tabBarLabel: 'Aktivitas',
           tabBarIcon: ({ color }) => (
-            <FontAwesome name='list-ul' size={28} color={color} />
+            <MaterialIcons
+              name='format-list-bulleted'
+              size={iconSize}
+              color={color}
+            />
           ),
         }}
       />
@@ -74,8 +81,12 @@ export default function () {
         options={{
           title: 'Chat',
           tabBarLabel: 'Chat',
-          tabBarIcon: ({ color }) => (
-            <FontAwesome name='commenting' size={28} color={color} />
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons
+              name={focused ? 'chatbox-ellipses' : 'chatbox-ellipses-outline'}
+              size={iconSize}
+              color={color}
+            />
           ),
         }}
       />
@@ -86,13 +97,13 @@ export default function () {
 function HeaderRight() {
   return (
     <HStack className='gap-x-2.5'>
-      <ChangeThemeButton />
+      <CycleThemeButton />
       <ProfileButton className='mr-4' />
     </HStack>
   );
 }
 
-function ChangeThemeButton() {
+function CycleThemeButton() {
   const colorScheme = useColorScheme() || 'light';
   const { themeMode, cycleThemeMode } = useThemeMode();
 

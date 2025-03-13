@@ -26,8 +26,8 @@ type ChatCardProps = {
 };
 
 const filterTypes: FilterType[] = [
-  { name: 'all', label: '   All   ' },
-  { name: 'unread', label: 'Unread' },
+  { name: 'all', label: 'Semua' },
+  { name: 'unread', label: 'Belum dibaca' },
 ];
 
 function formatDateTime(dateTime: Date): string {
@@ -35,7 +35,7 @@ function formatDateTime(dateTime: Date): string {
     /*
     This function formats the dateTime based on following stipulations:
     - if today, then HH:MM
-    - if yesterday, then 'yesterday'
+    - if yesterday, then 'kemarin'
     - else, then DD/M/YY
   */
   }
@@ -50,7 +50,7 @@ function formatDateTime(dateTime: Date): string {
   if (isToday) {
     return `${dateTime.getHours()}:${String(dateTime.getMinutes()).padStart(2, '0')}`;
   } else if (isYesterday) {
-    return 'yesterday';
+    return 'Kemarin';
   } else {
     return `${dateTime.getDate()}/${dateTime.getMonth() + 1}/${dateTime.getFullYear() % 100}`;
   }

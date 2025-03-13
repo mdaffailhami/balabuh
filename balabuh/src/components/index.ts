@@ -11,7 +11,6 @@ import { Divider } from './divider';
 import { Heading } from './heading';
 import { HStack } from './hstack';
 import { Text } from './text';
-import { Tooltip, TooltipContent, TooltipText } from './tooltip';
 import { VStack } from './vstack';
 import { Chip } from './chip';
 import { IconButton } from './icon-button';
@@ -28,9 +27,6 @@ export {
   Heading,
   HStack,
   Text,
-  Tooltip,
-  TooltipContent,
-  TooltipText,
   VStack,
   Chip,
   IconButton,

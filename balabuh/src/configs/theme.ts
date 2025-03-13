@@ -1,7 +1,7 @@
 const theme = {
   light: {
     '--color-primary': 'rgb(245, 124, 0)',
-    '--color-primary-container': 'rgba(245, 124, 0, 0.7)',
+    '--color-primary-container': 'rgba(245, 124, 0, 0.8)',
     '--color-background': 'rgb(249, 250, 251)',
     '--color-on-background': 'rgb(0, 0, 0)',
     '--color-surface': 'rgba(0, 0, 0, 0.02)',
@@ -11,7 +11,7 @@ const theme = {
   },
   dark: {
     '--color-primary': 'rgb(245, 124, 0)',
-    '--color-primary-container': 'rgba(245, 124, 0, 0.7)',
+    '--color-primary-container': 'rgba(245, 124, 0, 0.8)',
     '--color-background': 'rgb(25, 29, 36)',
     '--color-on-background': 'rgb(255, 255, 255)',
     '--color-surface': 'rgba(255, 255, 255, 0.02)',

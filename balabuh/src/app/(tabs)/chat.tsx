@@ -8,10 +8,9 @@ import {
   Heading,
   Text,
 } from '@/components';
-import { cn, compareAsJson } from '@/utils';
+import { cn } from '@/utils';
 import React from 'react';
-import { GestureResponderEvent, Pressable } from 'react-native';
-import { ScrollView } from 'react-native';
+import { ScrollView, Pressable } from 'react-native';
 
 type FilterType = {
   name: 'all' | 'unread';
@@ -89,7 +88,7 @@ function ChatCard({
   numberOfUnreadMessages,
   dateTime,
   onPress,
-}: ChatCardProps & { onPress: (event: GestureResponderEvent) => void }) {
+}: ChatCardProps & { onPress: () => void }) {
   return (
     <Pressable
       className='group rounded-lg border border-outline'

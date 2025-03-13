@@ -1,5 +1,6 @@
 import { cn } from '@/utils';
 import { Box, Text } from '.';
+import { Pressable } from 'react-native';
 
 export function Chip({
   label,
@@ -11,13 +12,20 @@ export function Chip({
   onPress: (isActive: boolean) => void;
 }) {
   return (
-    <Box
-      onTouchEnd={() => onPress(isActive)}
-      className={cn('rounded-lg bg-faded px-3 py-1.5', {
-        'bg-primary-container': isActive,
-      })}
-    >
-      <Text className='font-semibold text-on-surface'>{label}</Text>
-    </Box>
+    <Pressable onPress={() => onPress(isActive)} className='active:opacity-50'>
+      <Box
+        className={cn('rounded-lg bg-faded px-4 py-1.5', {
+          'bg-primary-container': isActive,
+        })}
+      >
+        <Text
+          className={cn('font-semibold text-on-surface', {
+            'text-background': isActive,
+          })}
+        >
+          {label}
+        </Text>
+      </Box>
+    </Pressable>
   );
 }

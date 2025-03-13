@@ -94,8 +94,8 @@ function ChatCard({
       className='group rounded-lg border border-outline'
       onPress={onPress}
     >
-      <Box className='w-full flex-row bg-surface px-2 py-4 group-active:opacity-50'>
-        <Avatar className='mr-2.5'>
+      <Box className='w-full flex-row gap-x-2.5 bg-surface px-2.5 py-3.5 group-active:opacity-50'>
+        <Avatar size='lg'>
           <AvatarFallbackText className='text-on-surface'>
             {name}
           </AvatarFallbackText>
@@ -106,8 +106,8 @@ function ChatCard({
           />
         </Avatar>
         <Box className='flex-1'>
-          <Box className='flex-row'>
-            <Heading className='mr-2 line-clamp-1 flex-1 text-on-surface'>
+          <Box className='flex-row gap-x-2.5'>
+            <Heading className='line-clamp-1 flex-1 text-on-surface'>
               {name}
             </Heading>
             <Text
@@ -118,8 +118,8 @@ function ChatCard({
               {formatDateTime(dateTime)}
             </Text>
           </Box>
-          <Box className='flex-row'>
-            <Text className='mr-2 line-clamp-1 flex-1 text-on-surface'>
+          <Box className='flex-row gap-x-2.5'>
+            <Text className='line-clamp-1 flex-1 text-on-surface'>
               {message}
             </Text>
             {numberOfUnreadMessages > 0 && (

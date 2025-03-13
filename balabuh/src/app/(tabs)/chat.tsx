@@ -1,10 +1,36 @@
-import { Center, Chip, Text } from '@/components';
+import { Box, Chip, Text } from '@/components';
+import { compareAsJson } from '@/utils';
+import React from 'react';
+
+type FilterType = {
+  name: string;
+  label: string;
+};
+
+const filterTypes: FilterType[] = [
+  { name: 'all', label: '   All   ' },
+  { name: 'unread', label: 'Unread' },
+];
 
 export default function () {
+  console.log('/(tabs)/chat.tsx is being rendered');
+  const [activeFilterType, setActiveFilterType] = React.useState(
+    filterTypes[0],
+  );
+
   return (
-    <Center className='flex-1 bg-background'>
-      <Chip />
+    <Box className='min-h-full bg-background px-3'>
+      <Box className='flex-row gap-3 py-4'>
+        {filterTypes.map((filterType, i) => (
+          <Chip
+            key={i}
+            label={filterType.label}
+            isActive={compareAsJson(filterType, activeFilterType)}
+            onPress={() => setActiveFilterType(filterType)}
+          />
+        ))}
+      </Box>
       <Text className='font-bold text-black dark:text-white'>Chat Screen</Text>
-    </Center>
+    </Box>
   );
 }

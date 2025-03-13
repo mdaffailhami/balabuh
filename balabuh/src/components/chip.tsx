@@ -1,10 +1,23 @@
-import { Box } from '@/components/box';
-import { Text } from '@/components/text';
+import { cn } from '@/utils';
+import { Box, Text } from '.';
 
-export function Chip() {
+export function Chip({
+  label,
+  isActive,
+  onPress,
+}: {
+  label: string;
+  isActive: boolean;
+  onPress: (isActive: boolean) => void;
+}) {
   return (
-    <Box className=' rounded-full px-2 py-1'>
-      <Text>Chip</Text>
+    <Box
+      onTouchEnd={() => onPress(isActive)}
+      className={cn('rounded-lg bg-faded px-3 py-1.5', {
+        'bg-primary-container': isActive,
+      })}
+    >
+      <Text className='font-semibold text-on-surface'>{label}</Text>
     </Box>
   );
 }

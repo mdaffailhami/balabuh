@@ -31,7 +31,6 @@ export function ThemeModeProvider({ children }: { children: React.ReactNode }) {
     const loadThemeMode = async () => {
       const savedThemeMode = await AsyncStorage.getItem('themeMode');
       if (savedThemeMode) {
-        console.log('savedThemeMode', savedThemeMode);
         setThemeMode(savedThemeMode as ThemeMode);
         setColorScheme(savedThemeMode as ThemeMode);
       }

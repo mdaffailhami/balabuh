@@ -5,7 +5,7 @@ import { useColorScheme } from 'react-native';
 import { theme } from '@/configs';
 
 export default function () {
-  console.log('/_layout.tsx is being rendered');
+  console.debug('/_layout is being rendered');
 
   return (
     <ThemeModeProvider>

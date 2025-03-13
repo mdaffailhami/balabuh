@@ -17,8 +17,9 @@ import { useThemeMode } from '@/providers';
 import { useColorScheme } from 'react-native';
 
 export default function () {
+  console.debug('/(tabs)/_layout is being rendered');
+  
   const colorScheme = useColorScheme() || 'light';
-  console.log('/(tabs)/_layout.tsx is being rendered');
 
   const iconSize = 30;
 

@@ -13,7 +13,8 @@ const filterTypes: FilterType[] = [
 ];
 
 export default function () {
-  console.log('/(tabs)/chat.tsx is being rendered');
+  console.debug('/(tabs)/chat is being rendered');
+
   const [activeFilterType, setActiveFilterType] = React.useState(
     filterTypes[0],
   );

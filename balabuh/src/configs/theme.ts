@@ -6,8 +6,10 @@ const theme = {
     '--color-on-background': 'rgb(0, 0, 0)',
     '--color-surface': 'rgba(0, 0, 0, 0.02)',
     '--color-on-surface': 'rgb(0, 0, 0)',
-    '--color-outline': 'rgba(0, 0, 0, 0.2)',
-    '--color-faded': 'rgba(0, 0, 0, 0.08)',
+    '--color-glassy-1': 'rgba(0, 0, 0, 0.1)',
+    '--color-glassy-2': 'rgba(0, 0, 0, 0.2)',
+    '--color-glassy-3': 'rgba(0, 0, 0, 0.4)',
+    '--color-glassy-4': 'rgba(0, 0, 0, 0.8)',
   },
   dark: {
     '--color-primary': 'rgb(245, 124, 0)',
@@ -16,8 +18,10 @@ const theme = {
     '--color-on-background': 'rgb(255, 255, 255)',
     '--color-surface': 'rgba(255, 255, 255, 0.02)',
     '--color-on-surface': 'rgb(255, 255, 255)',
-    '--color-outline': 'rgba(255, 255, 255, 0.2)',
-    '--color-faded': 'rgba(255, 255, 255, 0.08)',
+    '--color-glassy-1': 'rgba(255, 255, 255, 0.1)',
+    '--color-glassy-2': 'rgba(255, 255, 255, 0.2)',
+    '--color-glassy-3': 'rgba(255, 255, 255, 0.4)',
+    '--color-glassy-4': 'rgba(255, 255, 255, 0.8)',
   },
 };
 // const theme = {

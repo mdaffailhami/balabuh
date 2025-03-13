@@ -14,7 +14,7 @@ export function Chip({
   return (
     <Pressable onPress={() => onPress(isActive)} className='active:opacity-50'>
       <Box
-        className={cn('rounded-lg bg-faded px-4 py-1.5', {
+        className={cn('bg-glassy-1 rounded-lg px-4 py-1.5', {
           'bg-primary-container': isActive,
         })}
       >

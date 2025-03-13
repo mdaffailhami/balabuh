@@ -15,6 +15,7 @@ import {
 } from '@expo/vector-icons';
 import { useThemeMode } from '@/providers';
 import { useColorScheme } from 'react-native';
+import { capitalize } from '@/utils';
 
 export default function () {
   console.debug('/(tabs)/_layout is being rendered');
@@ -44,7 +45,7 @@ export default function () {
           backgroundColor: theme[colorScheme]['--color-background'],
         },
         tabBarActiveTintColor: `${theme[colorScheme]['--color-primary']}`,
-        tabBarInactiveTintColor: `${theme[colorScheme]['--color-outline']}`,
+        tabBarInactiveTintColor: `${theme[colorScheme]['--color-glassy-2']}`,
         tabBarLabelStyle: {
           fontSize: 12,
         },
@@ -109,11 +110,17 @@ function CycleThemeButton() {
   const colorScheme = useColorScheme() || 'light';
   const { themeMode, cycleThemeMode } = useThemeMode();
 
-  const size = 24;
+  const size = 40;
   const color = theme[colorScheme]['--color-on-background'];
 
   return (
-    <IconButton onPress={() => cycleThemeMode()}>
+    <IconButton
+      tooltip={{
+        placement: 'bottom',
+        text: `${capitalize(themeMode)} theme`,
+      }}
+      onPress={() => cycleThemeMode()}
+    >
       {(() => {
         if (themeMode == 'light') {
           return <MaterialIcons name='light-mode' size={size} color={color} />;

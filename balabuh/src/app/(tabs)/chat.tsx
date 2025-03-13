@@ -91,7 +91,7 @@ function ChatCard({
 }: ChatCardProps & { onPress: () => void }) {
   return (
     <Pressable
-      className='group rounded-lg border border-outline'
+      className='border-glassy-2 group rounded-lg border'
       onPress={onPress}
     >
       <Box className='w-full flex-row gap-x-2.5 bg-surface px-2.5 py-3.5 group-active:opacity-50'>

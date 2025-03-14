@@ -45,7 +45,7 @@ export default function () {
           backgroundColor: theme[colorScheme]['--color-background'],
         },
         tabBarActiveTintColor: `${theme[colorScheme]['--color-primary']}`,
-        tabBarInactiveTintColor: `${theme[colorScheme]['--color-glassy-2']}`,
+        tabBarInactiveTintColor: `${theme[colorScheme]['--color-glassy-3']}`,
         tabBarLabelStyle: {
           fontSize: 12,
         },
@@ -77,6 +77,10 @@ export default function () {
               color={color}
             />
           ),
+          headerStyle: {
+            backgroundColor: theme[colorScheme]['--color-background'],
+            elevation: 0,
+          },
         }}
       />
       <Tabs.Screen

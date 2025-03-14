@@ -6,11 +6,16 @@ import {
   Center,
   Chip,
   Heading,
+  IconButton,
   Text,
 } from '@/components';
+import { theme } from '@/configs';
 import { cn } from '@/utils';
+import { Ionicons } from '@expo/vector-icons';
+import { Tabs } from 'expo-router';
 import React from 'react';
-import { ScrollView, Pressable } from 'react-native';
+import { useColorScheme } from 'react-native';
+import { ScrollView, Pressable, PressableProps } from 'react-native';
 
 type FilterType = {
   name: 'all' | 'unread';
@@ -87,13 +92,10 @@ function ChatCard({
   message,
   numberOfUnreadMessages,
   dateTime,
-  onPress,
-}: ChatCardProps & { onPress: () => void }) {
+  ...props
+}: ChatCardProps & PressableProps) {
   return (
-    <Pressable
-      className='border-glassy-2 group rounded-lg border'
-      onPress={onPress}
-    >
+    <Pressable className='group rounded-lg border border-glassy-2' {...props}>
       <Box className='w-full flex-row gap-x-2.5 bg-surface px-2.5 py-3.5 group-active:opacity-50'>
         <Avatar size='lg'>
           <AvatarFallbackText className='text-on-surface'>
@@ -139,55 +141,84 @@ function ChatCard({
 export default function () {
   console.debug('/(tabs)/chat is being rendered');
 
+  const colorScheme = useColorScheme() || 'light';
+
+  const [isInSelectingMode, setIsInSelectingMode] = React.useState(false);
+
   const [activeFilterType, setActiveFilterType] =
     React.useState<FilterType['name']>('all');
 
-  return (
-    <ScrollView className='min-h-full bg-background px-3'>
-      <Box className='flex-row gap-x-3 pb-3 pt-4'>
-        {filterTypes.map((filterType, i) => (
-          <Chip
-            key={i}
-            label={filterType.label}
-            isActive={filterType.name == activeFilterType}
-            onPress={() => setActiveFilterType(filterType.name)}
-          />
-        ))}
-      </Box>
-      <Box className='w-full gap-y-1.5'>
-        {/* Loop 3 times (Don't do this in productions) */}
-        {chatCardProps.map((_, i) =>
-          chatCardProps.map((_, i) =>
-            chatCardProps.map(
-              (
-                { name, imageUrl, message, numberOfUnreadMessages, dateTime },
-                i,
-              ) => {
-                if (
-                  activeFilterType == 'unread' &&
-                  numberOfUnreadMessages < 1
-                ) {
-                  return;
-                }
+  console.log(isInSelectingMode);
 
-                return (
-                  <ChatCard
-                    key={i}
-                    name={name}
-                    imageUrl={imageUrl}
-                    message={message}
-                    numberOfUnreadMessages={numberOfUnreadMessages}
-                    dateTime={dateTime}
-                    onPress={() => {
-                      console.debug(`${name}'s Chat Card is being pressed`);
-                    }}
+  return (
+    <>
+      <Tabs.Screen
+        options={{
+          title: !isInSelectingMode ? 'Chat' : '   1',
+          headerLeft: () =>
+            !isInSelectingMode ? null : (
+              <>
+                <Box className='w-2' />
+                <IconButton onPress={() => setIsInSelectingMode(false)}>
+                  <Ionicons
+                    name='arrow-back'
+                    size={24}
+                    color={theme[colorScheme]['--color-on-background']}
                   />
-                );
-              },
+                </IconButton>
+              </>
             ),
-          ),
-        )}
-      </Box>
-    </ScrollView>
+        }}
+      />
+      <ScrollView className='min-h-full bg-background px-3'>
+        <Box className='flex-row gap-x-3 pb-3 pt-4'>
+          {filterTypes.map((filterType, i) => (
+            <Chip
+              key={i}
+              label={filterType.label}
+              isActive={filterType.name == activeFilterType}
+              onPress={() => setActiveFilterType(filterType.name)}
+            />
+          ))}
+        </Box>
+        <Box className='w-full gap-y-1.5'>
+          {/* Loop 3 times (Don't do this in productions) */}
+          {chatCardProps.map((_, i) =>
+            chatCardProps.map((_, i) =>
+              chatCardProps.map(
+                (
+                  { name, imageUrl, message, numberOfUnreadMessages, dateTime },
+                  i,
+                ) => {
+                  if (
+                    activeFilterType == 'unread' &&
+                    numberOfUnreadMessages < 1
+                  ) {
+                    return;
+                  }
+
+                  return (
+                    <ChatCard
+                      key={i}
+                      name={name}
+                      imageUrl={imageUrl}
+                      message={message}
+                      numberOfUnreadMessages={numberOfUnreadMessages}
+                      dateTime={dateTime}
+                      onPress={() => {
+                        console.debug(`${name}'s Chat Card is being pressed`);
+                      }}
+                      onLongPress={(event) => {
+                        if (!isInSelectingMode) setIsInSelectingMode(true);
+                      }}
+                    />
+                  );
+                },
+              ),
+            ),
+          )}
+        </Box>
+      </ScrollView>
+    </>
   );
 }

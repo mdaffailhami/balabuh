@@ -110,13 +110,13 @@ function CycleThemeButton() {
   const colorScheme = useColorScheme() || 'light';
   const { themeMode, cycleThemeMode } = useThemeMode();
 
-  const size = 40;
+  const size = 24;
   const color = theme[colorScheme]['--color-on-background'];
 
   return (
     <IconButton
       tooltip={{
-        placement: 'bottom',
+        placement: 'top',
         text: `${capitalize(themeMode)} theme`,
       }}
       onPress={() => cycleThemeMode()}

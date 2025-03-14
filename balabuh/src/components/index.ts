@@ -14,7 +14,6 @@ import { Text } from './text';
 import { VStack } from './vstack';
 import { Chip } from './chip';
 import { IconButton } from './icon-button';
-import { Tooltip } from './tooltip';
 
 export {
   Avatar,
@@ -31,5 +30,4 @@ export {
   VStack,
   Chip,
   IconButton,
-  Tooltip,
 };

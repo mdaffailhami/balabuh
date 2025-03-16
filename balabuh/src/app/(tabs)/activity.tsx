@@ -51,8 +51,14 @@ function ActivityCard({
       <Box className='w-full flex-row gap-x-2.5 bg-surface px-3.5 py-3.5 group-active:opacity-50'>
         <Box className='flex-1'>
           <Box className='flex-row gap-x-2'>
+            <FontAwesome6
+              name='car-side'
+              size={16}
+              color={theme[colorScheme]['--color-primary']}
+              className='translate-y-1.5'
+            />
             <Heading
-              className='max-w-[60%] overflow-hidden truncate text-xl text-on-surface'
+              className='max-w-[55%] overflow-hidden truncate text-xl text-on-surface'
               numberOfLines={1}
             >
               {from}
@@ -97,7 +103,7 @@ function ActivityCard({
               color={theme[colorScheme]['--color-primary']}
             />
           )}
-          <Text className='text-on-surface'>
+          <Text className='font-medium text-primary'>
             {isFinished ? 'Selesai' : 'Diproses'}
           </Text>
         </Box>

@@ -52,7 +52,7 @@ function ActivityCard({
         <Box className='flex-1'>
           <Box className='flex-row gap-x-2'>
             <Heading
-              className='overflow-hidden truncate text-xl text-on-surface'
+              className='max-w-[60%] overflow-hidden truncate text-xl text-on-surface'
               numberOfLines={1}
             >
               {from}
@@ -63,10 +63,23 @@ function ActivityCard({
               color={theme[colorScheme]['--color-on-surface']}
               className='translate-y-1.5'
             />
-            <Heading className='text-xl text-on-surface'>{to}</Heading>
+            <Heading
+              className='flex-1 overflow-hidden truncate text-xl text-on-surface'
+              numberOfLines={1}
+            >
+              {to}
+            </Heading>
           </Box>
-          <Text className='text-glassy-3'>{formatDate(date)}</Text>
-          <Text className='text-xl font-semibold text-primary'>
+          <Text
+            className='overflow-hidden truncate text-glassy-3'
+            numberOfLines={1}
+          >
+            {formatDate(date)}
+          </Text>
+          <Text
+            className='overflow-hidden truncate text-xl font-semibold text-primary'
+            numberOfLines={1}
+          >
             {formatRupiah(price)}
           </Text>
         </Box>
@@ -85,7 +98,7 @@ function ActivityCard({
             />
           )}
           <Text className='text-on-surface'>
-            {isFinished ? 'Selesai' : 'Proses'}
+            {isFinished ? 'Selesai' : 'Diproses'}
           </Text>
         </Box>
       </Box>
@@ -96,15 +109,15 @@ function ActivityCard({
 const histories: ActivityCardProps[] = [
   {
     isFinished: true,
-    from: 'Banjarbaru asjdbsakdb kasj dbaskjdb kasjdb',
-    to: 'Kandangan',
+    from: 'Barabai',
+    to: 'Bontang',
     date: new Date(),
     price: 100000,
   },
   {
     isFinished: true,
-    from: 'Barabai',
-    to: 'Banjarmasin',
+    from: 'Banjarbaru',
+    to: 'Kandangan',
     date: new Date(
       Date.now() - (new Date().getMonth() - 1) * 30 * 24 * 60 * 60 * 1000,
     ),
@@ -112,18 +125,18 @@ const histories: ActivityCardProps[] = [
   },
   {
     isFinished: true,
-    from: 'Barabai',
-    to: 'Bontang',
+    from: 'Lorem ipsum dolor sit amet, consectetur',
+    to: 'Lorem ipsum dolor sit amet, consectetur',
     date: new Date(Date.now() - 2 * 30 * 24 * 60 * 60 * 1000),
-    price: 99_123_456,
+    price: 99_123_456_789_123_123_123_123_123,
   },
 ];
 
 const inProcesses: ActivityCardProps[] = [
   {
     isFinished: false,
-    from: 'Banjarbaru',
-    to: 'Kandangan',
+    from: 'Barabai',
+    to: 'Bontang',
     date: new Date(),
     price: 100000,
   },
@@ -138,10 +151,10 @@ const inProcesses: ActivityCardProps[] = [
   },
   {
     isFinished: false,
-    from: 'Barabai',
-    to: 'Bontang',
+    from: 'Lorem ipsum dolor sit amet, consectetur',
+    to: 'Lorem ipsum dolor sit amet, consectetur',
     date: new Date(Date.now() - 2 * 30 * 24 * 60 * 60 * 1000),
-    price: 99_123_456,
+    price: 99_123_456_789_123_123_123_123_123,
   },
 ];
 

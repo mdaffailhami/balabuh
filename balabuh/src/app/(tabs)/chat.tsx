@@ -168,8 +168,8 @@ export default function () {
             ),
         }}
       />
-      <ScrollView className='min-h-full bg-background px-3'>
-        <Box className='flex-row gap-x-3 pb-3 pt-4'>
+      <ScrollView className='min-h-full bg-background'>
+        <Box className='flex-row gap-x-3 px-3 pt-4'>
           {filterTypes.map((filterType, i) => (
             <Chip
               key={i}
@@ -179,7 +179,7 @@ export default function () {
             />
           ))}
         </Box>
-        <Box className='w-full gap-y-1.5'>
+        <Box className='w-full gap-y-1.5 p-3'>
           {/* Loop 3 times (Don't do this in productions) */}
           {chatCardProps.map((_, i) =>
             chatCardProps.map((_, i) =>

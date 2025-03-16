@@ -161,7 +161,7 @@ const inProcesses: ActivityCardProps[] = [
 function HistoryScreen() {
   return (
     <ScrollView>
-      <Box className='min-h-full gap-y-1.5 bg-background px-3 py-3'>
+      <Box className='min-h-full gap-y-1.5 bg-background p-3'>
         {histories.map((_) =>
           histories.map((_) =>
             histories.map((history, i) => (
@@ -183,7 +183,7 @@ function HistoryScreen() {
 function InProcessScreen() {
   return (
     <ScrollView>
-      <Box className='min-h-full gap-y-1.5 bg-background px-3 py-3'>
+      <Box className='min-h-full gap-y-1.5 bg-background p-3'>
         {inProcesses.map((_) =>
           inProcesses.map((_) =>
             inProcesses.map((history, i) => (

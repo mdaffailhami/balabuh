@@ -148,8 +148,6 @@ export default function () {
   const [activeFilterType, setActiveFilterType] =
     React.useState<FilterType['name']>('all');
 
-  console.log(isInSelectingMode);
-
   return (
     <>
       <Tabs.Screen

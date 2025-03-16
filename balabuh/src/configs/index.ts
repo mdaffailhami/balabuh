@@ -1,3 +1,4 @@
-import theme from './theme';
+import { theme } from './theme';
+import { months } from './months';
 
-export { theme };
+export { theme, months };

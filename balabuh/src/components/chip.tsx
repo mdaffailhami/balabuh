@@ -1,5 +1,6 @@
 import { cn } from '@/utils';
-import { Box, Text } from '.';
+import { Box } from './box';
+import { Text } from './text';
 import { Pressable } from 'react-native';
 
 export function Chip({
@@ -14,7 +15,7 @@ export function Chip({
   return (
     <Pressable onPress={() => onPress(isActive)} className='active:opacity-50'>
       <Box
-        className={cn('bg-glassy-1 rounded-lg px-4 py-1.5', {
+        className={cn('rounded-lg bg-glassy-1 px-4 py-1.5', {
           'bg-primary-container': isActive,
         })}
       >

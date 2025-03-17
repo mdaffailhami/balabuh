@@ -1,4 +1,6 @@
-import { Box, Center, Text } from '@/components';
+import { Box } from '@/components/box';
+import { Center } from '@/components/center';
+import { Text } from '@/components/text';
 import { cn } from '@/utils';
 import React from 'react';
 import { GestureResponderEvent, Pressable } from 'react-native';

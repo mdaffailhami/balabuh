@@ -14,8 +14,8 @@ import { Text } from './text';
 import { VStack } from './vstack';
 import { Chip } from './chip';
 import { IconButton } from './icon-button';
-import { ActivityCard } from './activity-card';
 import { TextInput } from './text-input';
+import { TravelCard } from './travel-card';
 
 export {
   Avatar,
@@ -32,6 +32,6 @@ export {
   VStack,
   Chip,
   IconButton,
-  ActivityCard,
   TextInput,
+  TravelCard,
 };
